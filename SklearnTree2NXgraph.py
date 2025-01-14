@@ -154,7 +154,6 @@ def get_networkx_tree_from_sklearn(
         border_values=[0,0,0]
         if path is not None:
             if i_node in path:
-                print("new border")
                 border_values=[0,255,0]
 
         if node_type == "leaf":
