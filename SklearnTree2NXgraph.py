@@ -150,7 +150,7 @@ def get_networkx_tree_from_sklearn(
             node_attr_dict["class_name"] = get_node_class_name(
                 node_attr_dict["value"], class_names
             )
-        filename=f'{i_node}.png'
+        filename=f'DT_tree/{i_node}.png'
         border_values=[0,0,0]
         if path is not None:
             if i_node in path:
