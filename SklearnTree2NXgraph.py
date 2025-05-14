@@ -27,7 +27,7 @@ def make_mol_png_file(mol,filename,legend='',border_values=[0,0,0]):
         virat_img, 6, 6, 6, 6, cv2.BORDER_CONSTANT, value=border_values)
     cv2.imwrite(filename, borderoutput)
 
-def get_bit_info(mol, nBits=1024, radius=1):
+def get_bit_info(mol, nBits=2048, radius=1):
     mfpgen = rdFingerprintGenerator.GetMorganGenerator(radius=radius,fpSize=nBits)
     ao = rdFingerprintGenerator.AdditionalOutput()
     ao.AllocateBitInfoMap()
@@ -50,7 +50,7 @@ def make_bit_png(mol,bit,bit_info,filename,legend='',border_values=[0,0,0]):
 
 def make_bit_png_file(train_mols,bit,filename,legend="",border_values=[0,0,0]):
     for mol in train_mols:
-        bit_info = get_bit_info(mol, nBits=1024, radius=1)
+        bit_info = get_bit_info(mol, nBits=2048, radius=1)
         if bit in bit_info.keys():
             break
     make_bit_png(mol, bit, bit_info,filename,legend=legend,border_values=border_values)
